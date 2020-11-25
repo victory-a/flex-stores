@@ -23,12 +23,13 @@ const CartHeader = () => {
 export default CartHeader;
 
 const Wrapper = styled.header`
-  height: 5.5rem;
+  height: 7rem;
   padding-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  border-bottom: 1px solid #d0d0d0;
 
   & button:first-of-type {
     cursor: pointer;
