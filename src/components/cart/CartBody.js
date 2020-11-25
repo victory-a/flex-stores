@@ -1,34 +1,37 @@
 import React from "react";
-import cartData from "lib/data";
+import cartData from "lib/cartData";
 import { IoMdClose } from "react-icons/io";
 import styled from "styled-components";
 import { QuantityButton } from "components/Button";
 import dollarFormat from "utils/formatCurrency";
+import { EmptyState } from "components/EmptyState";
 
 const CartBody = () => {
   return (
     <Wrapper>
-      {cartData
-        ? cartData.map(({ title, price, image, id }) => (
-            <CartItem key={id}>
-              <h3>{title}</h3>
-              <div className="content">
-                <div className="controls">
-                  <p>{dollarFormat(price)}</p>
-                  <QuantityButton>
-                    <button className="selector">-</button>
-                    <p>{0}</p>
-                    <button className="selector">+</button>
-                  </QuantityButton>
-                </div>
-                <img src={image} alt="" />
-                <button className="cancel">
-                  <IoMdClose fontSize={20} />
-                </button>
+      {cartData.length > 0 ? (
+        cartData.map(({ title, price, image, id }) => (
+          <CartItem key={id}>
+            <h3>{title}</h3>
+            <div className="content">
+              <div className="controls">
+                <p>{dollarFormat(price)}</p>
+                <QuantityButton>
+                  <button className="selector">-</button>
+                  <p>{0}</p>
+                  <button className="selector">+</button>
+                </QuantityButton>
               </div>
-            </CartItem>
-          ))
-        : null}
+              <img src={image} alt="" />
+              <button className="cancel">
+                <IoMdClose fontSize={20} />
+              </button>
+            </div>
+          </CartItem>
+        ))
+      ) : (
+        <EmptyState />
+      )}
     </Wrapper>
   );
 };
