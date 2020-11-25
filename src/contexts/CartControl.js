@@ -3,7 +3,7 @@ import React from "react";
 const cartContext = React.createContext();
 
 const CartControlProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
   const { Provider } = cartContext;
 
   return <Provider value={[isOpen, setIsOpen]}>{children}</Provider>;

@@ -6,6 +6,7 @@ import Button from "components/Button";
 import Cart from "components/cart";
 import dollarFormat from "utils/formatCurrency";
 import { useQuery } from "react-query";
+import SkeletonLoader from "components/loaders.js/SkeletonLoader";
 
 const Grid = () => {
   const [inventory, setInventory] = React.useState([]);
@@ -21,18 +22,20 @@ const Grid = () => {
   return (
     <Wrapper>
       <ul>
-        {status === "success"
-          ? inventory.map(({ id, title, price, image }) => (
-              <StyledList key={id}>
-                <img src={image} alt="item for sale" />
-                <div className="info">
-                  <h2>{title}</h2>
-                  <p>{dollarFormat(price)}</p>
-                </div>
-                <Button>Add to cart</Button>
-              </StyledList>
-            ))
-          : null}
+        {status === "success" ? (
+          inventory.map(({ id, title, price, image }) => (
+            <StyledList key={id}>
+              <img src={image} alt="item for sale" />
+              <div className="info">
+                <h2>{title}</h2>
+                <p>{dollarFormat(price)}</p>
+              </div>
+              <Button>Add to cart</Button>
+            </StyledList>
+          ))
+        ) : (
+          <SkeletonLoader />
+        )}
       </ul>
 
       <Cart />
