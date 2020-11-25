@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import colors from "./colors";
 
 const size = {
   mobile: "375px",
@@ -15,10 +16,15 @@ export const device = {
 };
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@400;500&display=swap');
   .js-focus-visible :focus:not([data-focus-visible-added]) {
     outline: none;
     box-shadow: none;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   html {
@@ -37,10 +43,19 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     outline: none;
+    color: ${colors.black};
+    background: ${colors.white};
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 
   ul {
     list-style-type: none;
+  }
+
+  a {
+    text-decoration: none !important;
+    transform: color .5s;
   }
 `;
 

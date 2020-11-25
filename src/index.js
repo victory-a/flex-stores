@@ -1,18 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import GlobalStyles from "styles";
-import styles from "styles/theme";
 import App from "./App";
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import CartControl from "contexts/CartControl";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-
-    <ThemeProvider theme={styles}>
-      <CSSReset />
+    <CartControl>
       <App />
-    </ThemeProvider>
+    </CartControl>
   </React.StrictMode>,
   document.getElementById("root")
 );
