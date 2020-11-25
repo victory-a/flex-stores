@@ -43,7 +43,7 @@ const Wrapper = styled.section`
   & > div {
     background: ${colors.whiteSmoke};
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     padding: 0 1.5rem;
     position: fixed;
     max-width: 550px;

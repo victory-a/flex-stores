@@ -47,4 +47,27 @@ export const ClearButton = styled(Button)`
   height: 3.3rem;
 `;
 
+export const QuantityButton = styled.div`
+  display: flex;
+  align-items: center;
+  border: 0.5px solid #bcbcbc;
+  min-width: 76px;
+  margin-right: 1rem;
+
+  & > button.selector {
+    color: #000;
+    background: transparent;
+    min-height: 35px;
+  }
+
+  & > p {
+    font-size: 0.825rem;
+    text-align: center;
+  }
+
+  & > * {
+    width: 33.33%;
+  }
+`;
+
 export default Button;

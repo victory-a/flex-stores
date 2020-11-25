@@ -57,6 +57,12 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none !important;
     transform: color .5s;
   }
+
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
 `;
 
 export default GlobalStyles;

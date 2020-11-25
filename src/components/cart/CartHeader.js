@@ -2,7 +2,7 @@ import React from "react";
 import colors from "styles/colors";
 import styled from "styled-components";
 import { ClearButton } from "components/Button";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import { useCartControl } from "contexts/CartControl";
 
 const CartHeader = () => {
@@ -11,7 +11,8 @@ const CartHeader = () => {
   return (
     <Wrapper>
       <button onClick={() => setIsOpen(false)}>
-        <IoIosArrowBack size={20} />
+        Hide
+        <IoIosArrowForward size={20} />
       </button>
       <h2>Your Cart</h2>
       <ClearButton>Clear cart</ClearButton>
@@ -22,7 +23,8 @@ const CartHeader = () => {
 export default CartHeader;
 
 const Wrapper = styled.header`
-  height: 4rem;
+  height: 5.5rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,8 +35,8 @@ const Wrapper = styled.header`
     background: transparent;
     border-radius: 5px;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;

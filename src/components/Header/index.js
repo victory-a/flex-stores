@@ -37,6 +37,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 10rem;
+  background: ${colors.whiteSmoke};
 
   & > div {
     margin: 0 3rem;

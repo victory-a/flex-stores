@@ -5,6 +5,7 @@ import { device } from "styles/index";
 import data from "lib/data";
 import Button from "components/Button";
 import Cart from "components/cart";
+import dollarFormat from "utils/formatCurrency";
 
 const Grid = () => {
   return (
@@ -16,7 +17,7 @@ const Grid = () => {
                 <img src={image} alt="item for sale" />
                 <div className="info">
                   <h2>{title}</h2>
-                  <p>${price}</p>
+                  <p>{dollarFormat(price)}</p>
                 </div>
                 <Button>Add to cart</Button>
               </StyledList>
@@ -32,7 +33,7 @@ const Grid = () => {
 export default Grid;
 
 const Wrapper = styled.main`
-  background: ${colors.somkey};
+  background: ${colors.white};
   min-height: calc(100vh - 10rem);
   width: 100%;
   padding: 1.2rem;
@@ -63,6 +64,7 @@ const StyledList = styled.li`
   align-items: center;
   justify-content: space-between;
   transition: box-shadow 0.3s ease;
+  border: 1px solid ${colors.battleShipGreen};
 
   &:hover {
     box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.12), 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.08);
@@ -88,8 +90,8 @@ const StyledList = styled.li`
     }
 
     p {
-      font-size: 1.3rem;
-      font-weight: 500;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
   }
 `;
