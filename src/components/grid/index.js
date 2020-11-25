@@ -2,17 +2,27 @@ import React from "react";
 import colors from "styles/colors";
 import styled from "styled-components";
 import { device } from "styles/index";
-import data from "lib/data";
 import Button from "components/Button";
 import Cart from "components/cart";
 import dollarFormat from "utils/formatCurrency";
+import { useQuery } from "react-query";
 
 const Grid = () => {
+  const [inventory, setInventory] = React.useState([]);
+
+  const { status } = useQuery({
+    queryKey: "get-inventory",
+    queryFn: () =>
+      fetch("https://fakestoreapi.com/products").then(response =>
+        response.json().then(data => setInventory(data))
+      )
+  });
+
   return (
     <Wrapper>
       <ul>
-        {data
-          ? data.map(({ id, title, price, image }) => (
+        {status === "success"
+          ? inventory.map(({ id, title, price, image }) => (
               <StyledList key={id}>
                 <img src={image} alt="item for sale" />
                 <div className="info">
