@@ -2,7 +2,7 @@ import React from "react";
 
 const cartContext = React.createContext();
 
-const CartControl = ({ children }) => {
+const CartControlProvider = ({ children }) => {
   const [isOpen, setIsOpen] = React.useState(true);
   const { Provider } = cartContext;
 
@@ -19,4 +19,4 @@ export const useCartControl = () => {
   return context;
 };
 
-export default CartControl;
+export default CartControlProvider;

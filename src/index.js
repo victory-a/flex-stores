@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import GlobalStyles from "styles";
 import App from "./App";
-import CartControl from "contexts/CartControl";
+import InventoryProvider from "contexts/Inventory";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <CartControl>
+    <InventoryProvider>
       <App />
-    </CartControl>
+    </InventoryProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
