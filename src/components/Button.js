@@ -43,6 +43,12 @@ export const ClearButton = styled(Button)`
   &:hover {
     background-color: transparent;
   }
+
+  &:disabled,
+  &[disabled] {
+    color: #cdcdcd;
+    cursor: not-allowed;
+  }
 `;
 
 export const QuantityButton = styled.div`

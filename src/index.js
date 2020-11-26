@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import { ReactQueryDevtools } from "react-query-devtools";
-
-import { ReactQueryConfigProvider } from "react-query";
 import GlobalStyles from "styles";
 import App from "./App";
 
+import { ReactQueryConfigProvider } from "react-query";
+
+// react query config
 const queryConfig = {
   queries: {
     retry: 3,
@@ -17,8 +17,6 @@ const queryConfig = {
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-
     <ReactQueryConfigProvider config={queryConfig}>
       <GlobalStyles />
       <App />

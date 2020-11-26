@@ -3,6 +3,7 @@ import { useCart } from "contexts/Cart/CartContext";
 import colors from "styles/colors";
 import styled from "styled-components";
 import dollarFormat from "utils/formatCurrency";
+import { FaPaypal } from "react-icons/fa";
 
 const CartFooter = () => {
   const { totalPrice } = useCart();
@@ -15,8 +16,13 @@ const CartFooter = () => {
       </div>
 
       <div className="cart-btns">
-        <button>Pay with stripe</button>
-        <button>Pay with Paypal</button>
+        <button>
+          Pay with stripe <FaPaypal />
+        </button>
+        <button>
+          Checkout
+          <FaPaypal fontSize={20} />
+        </button>
       </div>
     </Wrapper>
   );
@@ -72,6 +78,10 @@ const Wrapper = styled.footer`
         margin-top: 15px;
         letter-spacing: 2px;
         background-color: #4b5548;
+        vertical-align: middle;
+      }
+      & svg {
+        vertical-align: middle;
       }
     }
   }

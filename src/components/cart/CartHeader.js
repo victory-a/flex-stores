@@ -9,7 +9,7 @@ import { useCartControl } from "contexts/ToggleCart";
 
 const CartHeader = () => {
   const [, setIsOpen] = useCartControl();
-  const { clear } = useCart();
+  const { clear, totalQuantity } = useCart();
 
   return (
     <Wrapper>
@@ -18,7 +18,7 @@ const CartHeader = () => {
         <IoIosArrowForward size={20} />
       </button>
       <h2>Your Cart</h2>
-      <ClearButton onClick={clear}>
+      <ClearButton onClick={clear} disabled={Boolean(totalQuantity === 0)}>
         <BsTrash />
         Clear
       </ClearButton>
