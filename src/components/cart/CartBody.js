@@ -53,16 +53,17 @@ const Wrapper = styled.ul`
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
+
+  & li:last-child {
+    margin-bottom: 22rem;
   }
 `;
 
 const CartItem = styled.li`
   width: 100%;
   background: #fff;
-  padding: 0.5rem 0;
   margin-bottom: 1rem;
+  padding: 0.5rem;
 
   h3 {
     text-align: center;

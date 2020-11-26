@@ -40,6 +40,9 @@ const Wrapper = styled.header`
   align-items: center;
   height: 10rem;
   background: ${colors.whiteSmoke};
+  position: sticky;
+  top: 0;
+  left: 0;
 
   & > div {
     margin: 0 3rem;

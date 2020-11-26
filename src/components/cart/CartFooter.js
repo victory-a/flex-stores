@@ -40,7 +40,7 @@ const Wrapper = styled.footer`
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1;
   background: ${colors.whiteSmoke};
-
+  width: 100%;
   .cart-total {
     display: flex;
     justify-content: space-between;

@@ -47,6 +47,7 @@ const GlobalStyles = createGlobalStyle`
     background: ${colors.white};
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
   }
 
   ul {
