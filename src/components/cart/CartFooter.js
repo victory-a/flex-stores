@@ -1,14 +1,17 @@
 import React from "react";
+import { useCart } from "contexts/Cart/CartContext";
 import colors from "styles/colors";
 import styled from "styled-components";
 import dollarFormat from "utils/formatCurrency";
 
 const CartFooter = () => {
+  const { totalPrice } = useCart();
+
   return (
     <Wrapper>
       <div className="cart-total">
         <p>Subtotal</p>
-        <p>{dollarFormat(500)}</p>
+        <p>{dollarFormat(totalPrice)}</p>
       </div>
 
       <div className="cart-btns">

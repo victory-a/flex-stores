@@ -8,7 +8,7 @@ const Button = styled.button`
   background-color: ${colors.battleShipGreen};
   outline: none;
   border: 0px;
-  font-weight: 500;
+  font-weight: Bold;
   font-size: 1.4rem;
   transition: background-color 0.4s ease;
   border-radius: 2.5px;
@@ -35,38 +35,34 @@ const Button = styled.button`
 
 export const ClearButton = styled(Button)`
   background-color: transparent;
-  transition: background-color 0.1s ease;
-  border: 1px solid #ff0000;
+  transition: background-color 0.08s ease;
   color: #ff0000;
+  height: 2.8rem;
+  padding: 1rem 1.4rem;
 
   &:hover {
-    background-color: #de0b0b;
-    color: #fff;
+    background-color: transparent;
   }
-
-  height: 3.3rem;
 `;
 
 export const QuantityButton = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: 0.5px solid #bcbcbc;
-  min-width: 76px;
+  min-width: 90px;
   margin-right: 1rem;
 
   & > button.selector {
     color: #000;
     background: transparent;
-    min-height: 35px;
+    min-height: 30px;
+    width: 30%;
   }
 
   & > p {
     font-size: 0.825rem;
     text-align: center;
-  }
-
-  & > * {
-    width: 33.33%;
   }
 `;
 

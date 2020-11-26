@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-size: 1.6rem;
     min-height: 100%;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     outline: none;
     color: ${colors.black};

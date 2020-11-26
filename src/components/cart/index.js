@@ -1,5 +1,5 @@
 import React from "react";
-import { useCartControl } from "contexts/CartControl";
+import { useCartControl } from "contexts/ToggleCart";
 import colors from "styles/colors";
 import CartHeader from "./CartHeader";
 import CartBody from "./CartBody";

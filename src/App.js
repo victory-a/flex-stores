@@ -1,16 +1,19 @@
 import React, { lazy, Suspense } from "react";
-import CartControlProvider from "contexts/CartControl";
+import ToggleCartProvider from "contexts/ToggleCart";
 import { FullPageSpinner } from "components/loaders.js";
+import CartProvider from "contexts/Cart/CartContext";
 const ProductGrid = lazy(() => import("./components/grid"));
 const Header = lazy(() => import("./components/Header"));
 
 function App() {
   return (
     <Suspense fallback={<FullPageSpinner />}>
-      <CartControlProvider>
-        <Header />
-        <ProductGrid />
-      </CartControlProvider>
+      <ToggleCartProvider>
+        <CartProvider>
+          <Header />
+          <ProductGrid />
+        </CartProvider>
+      </ToggleCartProvider>
     </Suspense>
   );
 }

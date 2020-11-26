@@ -8,7 +8,7 @@ import App from "./App";
 
 const queryConfig = {
   queries: {
-    retry: 1,
+    retry: 3,
     throwOnError: false,
     useErrorBoundary: false,
     refetchOnWindowFocus: false

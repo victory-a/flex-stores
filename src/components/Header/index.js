@@ -1,5 +1,6 @@
 import React from "react";
-import { useCartControl } from "contexts/CartControl";
+import { useCart } from "contexts/Cart/CartContext";
+import { useCartControl } from "contexts/ToggleCart";
 import styled from "styled-components";
 import colors from "styles/colors";
 import Button from "components/Button";
@@ -7,6 +8,7 @@ import { BiCart } from "react-icons/bi";
 
 const Header = () => {
   const [, setIsOpen] = useCartControl();
+  const { totalQuantity } = useCart();
 
   return (
     <Wrapper>
@@ -22,7 +24,7 @@ const Header = () => {
 
       <Button onClick={setIsOpen}>
         <BiCart />
-        View Cart
+        cart {`(${totalQuantity})`}
       </Button>
     </Wrapper>
   );
@@ -44,7 +46,7 @@ const Wrapper = styled.header`
     h1 {
       color: ${colors.battleShipGreen};
       font-weight: bold;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       letter-spacing: 1px;
     }
     p {

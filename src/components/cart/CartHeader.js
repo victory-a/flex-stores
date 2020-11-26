@@ -1,12 +1,15 @@
 import React from "react";
+import { useCart } from "contexts/Cart/CartContext";
 import colors from "styles/colors";
 import styled from "styled-components";
 import { ClearButton } from "components/Button";
 import { IoIosArrowForward } from "react-icons/io";
-import { useCartControl } from "contexts/CartControl";
+import { BsTrash } from "react-icons/bs";
+import { useCartControl } from "contexts/ToggleCart";
 
 const CartHeader = () => {
   const [, setIsOpen] = useCartControl();
+  const { clear } = useCart();
 
   return (
     <Wrapper>
@@ -15,7 +18,10 @@ const CartHeader = () => {
         <IoIosArrowForward size={20} />
       </button>
       <h2>Your Cart</h2>
-      <ClearButton>Clear cart</ClearButton>
+      <ClearButton onClick={clear}>
+        <BsTrash />
+        Clear
+      </ClearButton>
     </Wrapper>
   );
 };
@@ -44,7 +50,8 @@ const Wrapper = styled.header`
     outline: none;
 
     &:hover {
-      background: rgba(75, 85, 72, 0.2);
+      background: ${colors.battleShipGreen};
+      color: ${colors.white};
     }
   }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import cartData from "lib/cartData";
+import { useCart } from "contexts/Cart/CartContext";
 import { IoMdClose } from "react-icons/io";
 import styled from "styled-components";
 import { QuantityButton } from "components/Button";
@@ -7,28 +7,37 @@ import dollarFormat from "utils/formatCurrency";
 import { EmptyState } from "components/EmptyState";
 
 const CartBody = () => {
+  const { cartItems, increase, decrease, remove } = useCart();
+
   return (
     <Wrapper>
-      {cartData.length > 0 ? (
-        cartData.map(({ title, price, image, id }) => (
-          <CartItem key={id}>
-            <h3>{title}</h3>
-            <div className="content">
-              <div className="controls">
-                <p>{dollarFormat(price)}</p>
-                <QuantityButton>
-                  <button className="selector">-</button>
-                  <p>{0}</p>
-                  <button className="selector">+</button>
-                </QuantityButton>
+      {cartItems.length > 0 ? (
+        cartItems.map(product => {
+          const { title, price, quantity, image, id } = product;
+          return (
+            <CartItem key={`cartItem-${id}`}>
+              <h3>{title}</h3>
+              <div className="content">
+                <div className="controls">
+                  <p>{dollarFormat(price)}</p>
+                  <QuantityButton>
+                    <button className="selector" onClick={() => decrease(id)}>
+                      -
+                    </button>
+                    <p>{quantity}</p>
+                    <button className="selector" onClick={() => increase(id)}>
+                      +
+                    </button>
+                  </QuantityButton>
+                </div>
+                <img src={image} alt="" />
+                <button className="cancel" onClick={() => remove(id)}>
+                  <IoMdClose fontSize={20} />
+                </button>
               </div>
-              <img src={image} alt="" />
-              <button className="cancel">
-                <IoMdClose fontSize={20} />
-              </button>
-            </div>
-          </CartItem>
-        ))
+            </CartItem>
+          );
+        })
       ) : (
         <EmptyState />
       )}
@@ -51,7 +60,6 @@ const Wrapper = styled.ul`
 
 const CartItem = styled.li`
   width: 100%;
-  /* height: 140px; */
   background: #fff;
   padding: 0.5rem 0;
   margin-bottom: 1rem;
@@ -61,6 +69,7 @@ const CartItem = styled.li`
     font-size: 1.2rem;
     color: #1e2d2b;
     margin-top: 0.5rem;
+    padding: 0 0.8rem;
   }
 
   & .content {

@@ -1,6 +1,5 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { device } from "styles";
 import styled from "styled-components";
 
 const SkeletonLoader = () => {
