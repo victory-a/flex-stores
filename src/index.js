@@ -16,11 +16,11 @@ const queryConfig = {
 };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ReactQueryConfigProvider config={queryConfig}>
-      <GlobalStyles />
-      <App />
-    </ReactQueryConfigProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <ReactQueryConfigProvider config={queryConfig}>
+    <GlobalStyles />
+    <App />
+  </ReactQueryConfigProvider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );

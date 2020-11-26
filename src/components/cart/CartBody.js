@@ -55,7 +55,7 @@ const Wrapper = styled.ul`
   scrollbar-width: none;
 
   & li:last-child {
-    margin-bottom: 22rem;
+    margin-bottom: 17rem;
   }
 `;
 

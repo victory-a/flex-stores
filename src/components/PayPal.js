@@ -1,39 +1,29 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
+import { useCart } from "contexts/Cart/CartContext";
+import { useCartControl } from "contexts/ToggleCart";
+import doAlert from "components/doAlert";
 
-export default function Paypal() {
-  const paypal = useRef();
+import { PayPalButton } from "react-paypal-button-v2";
 
-  useEffect(() => {
-    window.paypal
-      .Buttons({
-        createOrder: (data, actions, err) => {
-          return actions.order.create({
-            intent: "CAPTURE",
-            purchase_units: [
-              {
-                description: "Flex-store purchase",
-                amount: {
-                  currency_code: "",
-                  value: 0
-                }
-              }
-            ]
-          });
-        },
-        onApprove: async (data, actions) => {
-          const order = await actions.order.capture();
-          // console.log(order);
-        },
-        onError: err => {
-          // console.log(err);
-        }
-      })
-      .render(paypal.current);
-  }, []);
+function PayPal({ totalPrice }) {
+  const { clear } = useCart();
+  const [, setIsOpen] = useCartControl();
 
   return (
-    <div>
-      <div ref={paypal}></div>
-    </div>
+    <PayPalButton
+      amount={totalPrice}
+      style={{ color: "black" }}
+      onSuccess={(details, data) => {
+        doAlert("Transaction Successful", "success");
+        // clear cart
+        clear();
+        // close cart
+        setIsOpen(false);
+      }}
+      catchError={err => doAlert("Transaction Failed", "error")}
+      onError={err => doAlert("An error occured, Try again", "error")}
+    />
   );
 }
+
+export default PayPal;

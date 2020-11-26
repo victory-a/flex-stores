@@ -4,9 +4,10 @@ import colors from "styles/colors";
 import styled from "styled-components";
 import dollarFormat from "utils/formatCurrency";
 import { FaPaypal } from "react-icons/fa";
+import Paypal from "components/PayPal";
 
 const CartFooter = () => {
-  const { totalPrice } = useCart();
+  const { totalPrice, totalQuantity } = useCart();
 
   return (
     <Wrapper>
@@ -16,13 +17,14 @@ const CartFooter = () => {
       </div>
 
       <div className="cart-btns">
-        <button>
-          Pay with stripe <FaPaypal />
-        </button>
-        <button>
-          Checkout
-          <FaPaypal fontSize={20} />
-        </button>
+        {totalQuantity > 0 ? (
+          <Paypal totalPrice={totalPrice} disabled={true} />
+        ) : (
+          <button disabled={true}>
+            Checkout
+            <FaPaypal fontSize={20} />
+          </button>
+        )}
       </div>
     </Wrapper>
   );
@@ -66,22 +68,21 @@ const Wrapper = styled.footer`
       font-size: 1.2rem;
       font-weight: 300;
 
-      &:first-child {
-        color: ${colors.battleShipGreen};
-        letter-spacing: 0.96px;
-        border: 1px solid ${colors.battleShipGreen};
-        background-color: ${colors.white};
-      }
-
-      &:last-child {
-        color: ${colors.white};
-        margin-top: 15px;
-        letter-spacing: 2px;
-        background-color: #4b5548;
-        vertical-align: middle;
-      }
+      /* &:last-child { */
+      color: ${colors.white};
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      background-color: #4b5548;
+      vertical-align: middle;
+      /* } */
       & svg {
         vertical-align: middle;
+      }
+
+      &:disabled,
+      &[disabled] {
+        background: #cdcdcd;
+        cursor: not-allowed;
       }
     }
   }
