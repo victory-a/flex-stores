@@ -4,7 +4,6 @@ import { setStorage } from "utils/storage";
 // stores item array in localstorage,
 // computes the total quantity of items and computes the total price,
 // returns an object containing total quantity and total price;
-
 export const doSumAndStore = cartItems => {
   setStorage("cart", cartItems);
 

@@ -4,5 +4,5 @@ export default {
   ADD: "ADD",
   REMOVE: "REMOVE",
   CLEAR: "CLEAR",
-  CHECKOUT: "DECREASE"
+  CHECKOUT: "CHECKOUT"
 };
